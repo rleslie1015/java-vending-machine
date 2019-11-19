@@ -1,4 +1,4 @@
-package vend;
+package main.vend;
 
 public class Product
 {

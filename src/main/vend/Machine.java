@@ -1,4 +1,4 @@
-package vend;
+package main.vend;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +64,7 @@ public class Machine implements VendingMachine, VendingMachineHardwareFunctions,
                 dispenseProduct(p.getProductPosition(), p.getName());
                 final int change = balance - p.getPrice();
                 dispenseChange(change);
-            };
+            }
         }
 
     }
@@ -76,8 +76,14 @@ public class Machine implements VendingMachine, VendingMachineHardwareFunctions,
     }
 
     @Override
-    public void addProdcutToMachine(int productPosition, String productName, int price)
+    public void addProductToMachine(int productPosition, String productName, int price)
+    {       
+        getProducts().add(new Product(productPosition, productName, price));
+    }
+
+    @Override
+    public String toString()
     {
-        
+        return "Machine{" + "maxId=" + maxId + ", id=" + id + ", name='" + name + '\'' + ", products=" + products + ", balance=" + balance + '}';
     }
 }
